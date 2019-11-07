@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,6 +22,16 @@ public class Main {
         kishan.printFirstName();
 
         Person.printPersonName(kishan);
+
+
+        User mayur = new User("Mayur", "Patel");
+        User bhavesh = new User("Bhavesh", "Kadiya");
+        //ArrayList
+        ArrayList<User> userArrayList = new ArrayList<>();
+        userArrayList.add(mayur);
+        userArrayList.add(bhavesh);
+        System.out.println(mayur.firstName + " " + mayur.lastName);
+        System.out.println(bhavesh.firstName + " " + bhavesh.lastName);
 
 
     }
