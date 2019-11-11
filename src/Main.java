@@ -1,5 +1,3 @@
-import sun.security.krb5.internal.crypto.Aes128;
-
 import java.util.*;
 
 public class Main {
@@ -159,6 +157,90 @@ public class Main {
         //Traversing list
         for (Book b : list) {
             System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity);
+        }
+
+        //HashMap
+        HashMap<Integer, String> hm = new HashMap<Integer, String>();
+        System.out.println("Initial list of elements:" + hm);
+        hm.put(101, "Amit");
+        hm.put(102, "Vijay");
+        hm.put(103, "Ajaty");
+
+        System.out.println("After invoking put() method ");
+        for (Map.Entry m : hm.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        hm.putIfAbsent(104, "Mayur");
+        System.out.println("After invoking putIfAbsent() method ");
+
+        for (Map.Entry m : hm.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
+        map.put(105, "Ravi");
+        map.putAll(hm);
+        System.out.println("After invoking putAll() method ");
+
+        for (Map.Entry m : map.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        //HashMap example to remove() elements
+
+        System.out.println("Initial list of elements: " + map);
+
+        //key-based removal
+        map.remove(101);
+        System.out.println("Updated list of elements: " + map);
+
+        map.remove(102);
+        System.out.println("Updated list of elements: " + map);
+
+        //key-value pair based removal
+        map.remove(103, "Ajaty");
+        System.out.println("Updated list of elements: " + map);
+
+        map.remove(105);
+        System.out.println("Updated list of elements: " + map);
+
+        System.out.println("\n");
+
+        //HasMap example to replace() elements
+        HashMap<Integer, String> hm1 = new HashMap<Integer, String>();
+
+        hm1.put(100, "Amit");
+        hm1.put(101, "Vijay");
+        hm1.put(102, "Rahul");
+        System.out.println("Initial list of elements:");
+
+        for (Map.Entry m : hm1.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        //replace
+        System.out.println("Updated list of elements:");
+        hm1.replace(101, "Mayur");
+
+        for (Map.Entry m : hm1.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        System.out.println("Updated list of elements:");
+
+        hm1.replace(102, "Rahul", "Ravi");
+        for (Map.Entry m : hm1.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+        System.out.println("Updated list of elements:");
+
+        //replaceAll
+
+        hm1.replaceAll((k, v) -> "Ajay");
+
+        for (Map.Entry m : hm1.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
         }
     }
 }
