@@ -242,5 +242,88 @@ public class Main {
         for (Map.Entry m : hm1.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
         }
+
+
+//        TreeMap maintains ascending order.
+        //TreeMap Example
+        TreeMap<Integer, String> tmap = new TreeMap<>();
+
+        tmap.put(101, "Mayur");
+        tmap.put(104, "Kishanr");
+        tmap.put(103, "Bhavesh");
+        tmap.put(102, "Sanket");
+
+        for (Map.Entry m : tmap.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+//        TreeMap Example: remove()
+        System.out.println("Before invoking remove() method");
+        tmap.remove(102);
+        System.out.println("After invoking remove() method");
+        for (Map.Entry m : tmap.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+//        TreeMap Example: NavigableMap
+        NavigableMap<Integer, String> nmap = new TreeMap<Integer, String>();
+        nmap.put(100, "Amit");
+        nmap.put(102, "Ravi");
+        nmap.put(101, "Vijay");
+        nmap.put(103, "Rahul");
+        //Maintains descending order
+        System.out.println("descendingMap: " + nmap.descendingMap());
+
+        //Returns key-value pairs whose keys are less than or equal to the specified key.
+
+        System.out.println("headMap: " + nmap.headMap(102, true));
+
+        //Returns key-value pairs whose keys are greater than or equal to the specified key.
+        System.out.println("tailMap: " + nmap.tailMap(102, true));
+
+        //Returns key-value pairs exists in between the specified key.
+        System.out.println("SubMap:" + nmap.subMap(100, false, 102, true));
+
+        System.out.println("\n");
+        //TreeMap Example: SortedMap
+        SortedMap<Integer, String> smap = new TreeMap<>();
+        smap.put(100, "Amit");
+        smap.put(102, "Ravi");
+        smap.put(101, "Vijay");
+        smap.put(103, "Rahul");
+
+        //Returns key-value pairs whose keys are less than the specified key.
+        System.out.println("headMap: " + smap.headMap(103));
+
+        //Returns key-value pairs whose keys are greater than or equal to the specified key.
+        System.out.println("tailMap: " + smap.tailMap(102));
+
+        //Returns key-value pairs exists in between the specified key.
+        System.out.println("subMap: " + smap.subMap(101, 102));
+
+
+        //TreeMap Book Example
+        Map<Integer, Book> bmap = new TreeMap<Integer, Book>();
+
+        //Creating Books
+        Book a1 = new Book(101, "Let us C", "Yashwant Kanetkar", "BPB", 8);
+        Book a2 = new Book(102, "Data Communications & Networking", "Forouzan", "Mc Graw Hill", 4);
+        Book a3 = new Book(103, "Operating System", "Galvin", "Wiley", 6);
+        Book a4 = new Book(104, "Java", "Forouzan", "BPB", 7);
+        //Adding Books to map
+        bmap.put(4, a4);
+        bmap.put(2, a2);
+        bmap.put(1, a1);
+        bmap.put(3, a3);
+
+        //Traversing map
+
+        for (Map.Entry<Integer, Book> entry : bmap.entrySet()) {
+            int key = entry.getKey();
+            Book b = entry.getValue();
+
+            System.out.println(key + " Details:");
+            System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity);
+        }
     }
 }
