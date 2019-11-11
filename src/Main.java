@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -317,7 +318,6 @@ public class Main {
         bmap.put(3, a3);
 
         //Traversing map
-
         for (Map.Entry<Integer, Book> entry : bmap.entrySet()) {
             int key = entry.getKey();
             Book b = entry.getValue();
@@ -325,5 +325,58 @@ public class Main {
             System.out.println(key + " Details:");
             System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity);
         }
+
+        //Stack
+
+        Stack stack = new Stack();
+        //Push element on stack
+
+        stack.push("1");
+        stack.push("2");
+        stack.push("3");
+
+        System.out.println("Stack Push Element" + stack);
+
+//        String topElement = stack.pop();
+//        System.out.println("Stack Push Element" + topElement);
+//        String topElement = stack.peek();
+
+        int index = stack.search("1");
+        System.out.println(index);
+
+        Iterator iterator = stack.iterator();
+
+        while (iterator.hasNext()) {
+            Object value = iterator.next();
+//            System.out.println(value);
+        }
+
+        Stack stack1 = new Stack();
+        stack1.push("A");
+        stack1.push("B");
+        stack1.push("C");
+
+        Stream stream = stack1.stream();
+
+        stream.forEach((element) -> {
+            System.out.println(element);  // print element
+        });
+
+        List list1 = new ArrayList();
+        list1.add("A");
+        list1.add("B");
+        list1.add("C");
+        System.out.println(list1);
+
+        Stack stack2 = new Stack();
+        while (list1.size() > 0) {
+            stack2.push(list1.remove(0));
+        }
+
+        while (stack.size() > 0) {
+            list1.add(stack.pop());
+        }
+
+        System.out.println(list1);
     }
 }
